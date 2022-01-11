@@ -13,7 +13,9 @@ export class AuthController {
     return { token: this.authService.login(body.username, body.password) };
   }
 
-  @Role('admin')
+
+  // @UseGuards(JwtGuard, RoleGuard)
+  @Role('user')
   @UseGuards(JwtGuard, RoleGuard)
   @Get('test-auth')
   test(@Req() req) {
