@@ -5,11 +5,11 @@ const header = {
   typ: 'JWT',
 };
 
-const payload = {
-  username: 'user1@user.com',
-  name: 'Luiz Carlos',
-  exp: new Date().getTime(), //timestamp
-};
+// const payload = {
+//   username: 'user1@user.com',
+//   name: 'Luiz Carlos',
+//   exp: new Date().getTime(), //timestamp
+// };
 
 const headerEncoded = base64Url.encode(JSON.stringify(header));
 const payloadEncoded = base64Url.encode(JSON.stringify(payload));

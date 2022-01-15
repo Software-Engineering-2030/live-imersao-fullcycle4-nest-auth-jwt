@@ -14,14 +14,15 @@ export class AuthController {
   }
 
 
-  // @UseGuards(JwtGuard, RoleGuard)
+  @UseGuards(JwtGuard, RoleGuard)
   @Role('user')
   @UseGuards(JwtGuard, RoleGuard)
   @Get('test-auth')
   test(@Req() req) {
     console.log(req.user);
     return {
-      name: 'Luiz Carlos',
+      // name1: 'Luiz Carlos',
+      name: req.user.name
     };
   }
 
@@ -36,5 +37,11 @@ export class AuthController {
       };
     }
 
+    @UseGuards(JwtGuard)
+    @Get('user')
+    user(@Req() req) {
+      console.log(req.user);
+      return req.user;
+    }
 
 }
