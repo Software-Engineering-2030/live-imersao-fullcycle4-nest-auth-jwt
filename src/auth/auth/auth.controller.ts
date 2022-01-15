@@ -24,4 +24,17 @@ export class AuthController {
       name: 'Luiz Carlos',
     };
   }
+
+    // @UseGuards(JwtGuard, RoleGuard)
+    @Role('user')
+    @UseGuards(JwtGuard, RoleGuard)
+    @Get('login')
+    login1(@Req() req) {
+      console.log(req.user);
+      return {
+        name: 'Luiz Carlos',
+      };
+    }
+
+
 }
